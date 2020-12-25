@@ -63,6 +63,11 @@ class PersonalPayHeader extends React.Component {
 
                 <div className="btn-group btn-group-sm w-100 mb-3" role="group">
 
+                    <a className="btn btn-info" href="/modules/personalPay/index.php?old=true">
+                        <Icon icon={['fas', 'external-link-alt']} className="mr-2" />
+                        <span>Старая версия</span>
+                    </a>
+
                     <button type="button" className="btn btn-primary" data-step="-1" onClick={this.props.setDateStep}>
                         <Icon icon={['fas', 'chevron-left']} className="mr-2" />
                         <span>Предыдущий</span>

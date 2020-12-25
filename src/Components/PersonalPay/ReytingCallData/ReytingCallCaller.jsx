@@ -28,12 +28,12 @@ function ReytingCallCaller(props) {
 
             {row.prihodBonus > 0 ? <div className="d-flex justify-content-between px-1 more-info-hover">
                 <small>Бонус за приходы</small>
-                <small>{row.prihodBonus}</small>
+                <small className="bonus-summa">{row.prihodBonus}</small>
             </div> : null}
             
             {row.bonusReviews > 0 ? <div className="d-flex justify-content-between px-1 more-info-hover">
                 <small>Бонус за отзывы</small>
-                <small>{row.bonusReviews}</small>
+                <small className="bonus-summa">{row.bonusReviews}</small>
             </div> : null}
 
         </div>
