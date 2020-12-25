@@ -1,4 +1,5 @@
 import ReytingCallCaller from './ReytingCallCaller'
+import ReytingCallTrener from './ReytingCallTrener'
 
 function ReytingCallData(props) {
 
@@ -13,7 +14,7 @@ function ReytingCallData(props) {
         : null
 
     const reytingTreners = row?.reytingTreners
-        ? null
+        ? <ReytingCallTrener row={row.reytingTreners} />
         : null
 
     if (!reytingCallOne && !reytingCallTwo && !reytingTreners)

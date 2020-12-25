@@ -247,7 +247,7 @@ class PersonalPay extends React.Component {
                     period={this.state.period}
                 />
 
-                {!error ? <div className="table-content">
+                {!error ? <div className="table-content position-relative">
 
                     <div className="table-row font-weight-bold text-light table-row-header">
                         <div className="table-cell py-2 px-2 text-center bg-primary">ФИО</div>
