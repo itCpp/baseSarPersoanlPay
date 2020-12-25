@@ -1,0 +1,133 @@
+#personal-pay {
+    max-width: 1000px;
+}
+
+.personal-pay-header {
+    max-width: 500px;
+}
+
+.select-auto-date {
+    cursor: pointer;
+    margin: 0 0 0 .5rem;
+}
+.select-auto-date:hover {
+    text-decoration: underline;
+}
+
+.search-block {
+    position: relative;
+}
+
+.search-input {
+    padding-right: 30px;
+}
+
+.search-start {
+    position: absolute;
+    top: 9px;
+    right: 9px;
+    font-size: 20px;
+    opacity: .6;
+    cursor: pointer;
+}
+.search-start:hover { opacity: 1; }
+
+.error-global {
+    margin-top: 100px;
+    max-width: 600px;
+}
+
+.table-content {
+    display: table;
+    font-size: 85%;
+    width: 100%;
+}
+.table-row {
+    display: table-row;
+}
+.table-cell {
+    display: table-cell;
+    vertical-align: middle;
+    border-bottom: 1px solid #ededed;
+}
+.table-cell.null-data {
+    opacity: .5;
+}
+
+.table-row-header .table-cell {
+    border-bottom: none;
+    position: sticky;
+    z-index: 1;
+    top: 39px;
+}
+
+.user-white {
+    background-color: #ffffff;
+}
+.user-white:hover { background-color: #f5f5f5; }
+
+.user-red {
+    background-color: #ffecec;
+    color: #500a0a;
+}
+.user-red:hover { background-color: #ffe2e2; }
+
+.user-gray {
+    background-color: #ebebeb;
+    color: #767676;
+}
+.user-gray:hover { background-color: #dadada; }
+
+.table-row-statistic {
+    background-color: #767676;
+    color: #ebebeb;
+}
+
+.table-row-otdel {
+    background-color: #1a1a1a;
+    color: #ebebeb;
+}
+
+.ostatok-minus, .ostatok-plus { font-weight: 700; }
+.ostatok-minus { color: #e81f1f; }
+.ostatok-plus { color: #25a525; }
+
+.loading-block-personal {
+    position: absolute;
+    background-color: #ffffffc4;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+}
+
+.hover-name-for-click:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.more-info-pay {
+    font-size: 90%;
+}
+
+.caller-reyting {
+    border-left: 3px solid rgba(0,0,0,.1);
+    padding-left: .3rem;
+}
+
+.cursor-default {
+    cursor: default;
+}
+
+.more-info-hover:hover {
+    background-color: #f2f2f2c4;
+    border-radius: .25rem;
+}
+
+.fio-name {
+    font-size: 110%;
+}
