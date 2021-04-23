@@ -6,6 +6,7 @@ import echoerror from './../../Utils/echoerror'
 import { Modal, Spinner } from 'react-bootstrap'
 
 import ReytingCallData from './ReytingCallData/ReytingCallData'
+import PersonalPayInfoDayParts from './PersonalPayInfoDayParts'
 
 class PersonalPayInfo extends React.Component {
 
@@ -77,7 +78,10 @@ class PersonalPayInfo extends React.Component {
                     : <div className="more-info-pay">
 
                         <div><strong className="fio-name">{fio}</strong></div>
-                        <div className="mb-2">{row.otdel}</div>
+                        <div className="mb-2">
+                            <span>{row.otdel}</span>
+                            <span className="text-muted ml-2">{row.doljnost}</span>
+                        </div>
 
                         {row.workStart ? <div className="d-flex justify-content-between px-1 more-info-hover">
                             <span>Дата начала работы</span>
@@ -105,6 +109,8 @@ class PersonalPayInfo extends React.Component {
                         </div> : null}
 
                         <ReytingCallData row={row} />
+
+                        <PersonalPayInfoDayParts row={row} />
                         
                     </div>
 
