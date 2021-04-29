@@ -7,6 +7,7 @@ import { Modal, Spinner } from 'react-bootstrap'
 
 import ReytingCallData from './ReytingCallData/ReytingCallData'
 import PersonalPayInfoDayParts from './PersonalPayInfoDayParts'
+import PersonalPayLegerys from './PersonalPayLegerys'
 
 class PersonalPayInfo extends React.Component {
 
@@ -109,6 +110,8 @@ class PersonalPayInfo extends React.Component {
                         </div> : null}
 
                         <ReytingCallData row={row} />
+
+                        <PersonalPayLegerys row={row} />
 
                         <PersonalPayInfoDayParts row={row} />
                         
