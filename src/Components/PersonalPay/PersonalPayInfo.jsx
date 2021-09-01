@@ -124,7 +124,7 @@ class PersonalPayInfo extends React.Component {
 
                         <hr className="my-2" />
 
-                        {this.state.okladPart ? <div className="d-flex justify-content-between px-1 more-info-hover">
+                        {this.state.okladPart > 0 ? <div className="d-flex justify-content-between px-1 more-info-hover">
                             <span>Начислено по окладу</span>
                             <span>{this.state.okladPart}</span>
                         </div> : null}
