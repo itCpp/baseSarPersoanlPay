@@ -6,6 +6,7 @@ import echoerror from './../../Utils/echoerror'
 import { Modal, Spinner } from 'react-bootstrap'
 
 import ReytingCallData from './ReytingCallData/ReytingCallData'
+import ReytingCallSalary from './ReytingCallData/ReytingCallSalary'
 import PersonalPayInfoDayParts from './PersonalPayInfoDayParts'
 import PersonalPayLegerys from './PersonalPayLegerys'
 
@@ -18,6 +19,7 @@ class PersonalPayInfo extends React.Component {
         loading: false,
         error: null,
         kassa: 0,
+        okladPart: 0,
     }
 
     componentDidUpdate = () => {
@@ -45,8 +47,23 @@ class PersonalPayInfo extends React.Component {
         }).then(({ data }) => {
 
             data.rows.forEach(row => {
-                if (Number(row.id) === Number(id))
-                    this.setState({ row, kassa: data.kassa });
+                if (Number(row.id) === Number(id)) {
+
+                    let okladPart = 0;
+
+                    if (row.okladParts) {
+                        if (typeof row.okladParts == "object") {
+                            row.okladParts.forEach(part => {
+                                okladPart += part.part;
+                            });
+                        }
+                    }
+
+                    okladPart = okladPart.toFixed(0);
+
+                    this.setState({ row, kassa: data.kassa, okladPart });
+
+                }
             });
 
         }).catch(error => {
@@ -105,10 +122,14 @@ class PersonalPayInfo extends React.Component {
                             <span>{row.oklad}</span>
                         </div> : null}
 
-                        {row.kassaPeriod && row.kassaPeriod > 0 ? <div className="d-flex justify-content-between px-1 more-info-hover">
-                            <span>Премия от кассы за период ({this.state.kassa})</span>
-                            <span>{row.kassaPeriod}</span>
+                        <hr className="my-2" />
+
+                        {this.state.okladPart ? <div className="d-flex justify-content-between px-1 more-info-hover">
+                            <span>Начислено по окладу</span>
+                            <span>{this.state.okladPart}</span>
                         </div> : null}
+
+                        <ReytingCallSalary row={row} />
 
                         {row.salary ? <div className="d-flex justify-content-between px-1 more-info-hover">
                             <span>Начислено ЗП</span>
@@ -120,7 +141,7 @@ class PersonalPayInfo extends React.Component {
                         <PersonalPayLegerys row={row} />
 
                         <PersonalPayInfoDayParts row={row} />
-                        
+
                     </div>
 
         return (
