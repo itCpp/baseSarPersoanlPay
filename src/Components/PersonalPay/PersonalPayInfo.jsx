@@ -17,6 +17,7 @@ class PersonalPayInfo extends React.Component {
         show: false,
         loading: false,
         error: null,
+        kassa: 0,
     }
 
     componentDidUpdate = () => {
@@ -45,7 +46,7 @@ class PersonalPayInfo extends React.Component {
 
             data.rows.forEach(row => {
                 if (Number(row.id) === Number(id))
-                    this.setState({ row });
+                    this.setState({ row, kassa: data.kassa });
             });
 
         }).catch(error => {
@@ -102,6 +103,11 @@ class PersonalPayInfo extends React.Component {
                         {row.oklad ? <div className="d-flex justify-content-between px-1 more-info-hover">
                             <span>Оклад за период</span>
                             <span>{row.oklad}</span>
+                        </div> : null}
+
+                        {row.kassaPeriod && row.kassaPeriod > 0 ? <div className="d-flex justify-content-between px-1 more-info-hover">
+                            <span>Премия от кассы за период ({this.state.kassa})</span>
+                            <span>{row.kassaPeriod}</span>
                         </div> : null}
 
                         {row.salary ? <div className="d-flex justify-content-between px-1 more-info-hover">
