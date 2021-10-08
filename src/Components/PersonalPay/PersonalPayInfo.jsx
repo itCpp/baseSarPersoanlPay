@@ -97,7 +97,7 @@ class PersonalPayInfo extends React.Component {
                     : <div className="more-info-pay">
 
                         <div><strong className="fio-name">{fio}</strong></div>
-                        <div className="mb-2">
+                        <div className="px-1 mb-2">
                             <span>{row.otdel}</span>
                             <span className="text-muted ml-2">{row.doljnost}</span>
                         </div>
@@ -112,12 +112,20 @@ class PersonalPayInfo extends React.Component {
                             <span>{row.workStopRus}</span>
                         </div> : null}
 
+                        {row.oforml === 1
+                            ? <div className="d-flex justify-content-between px-1 more-info-hover align-items-center">
+                                <span>Форма расчета</span>
+                                <code>ОФ.</code>
+                            </div>
+                            : null
+                        }
+
                         {row.okladFull > 0 ? <div className="d-flex justify-content-between px-1 more-info-hover">
                             <span>Оклад</span>
                             <span>{row.okladFull}</span>
                         </div> : null}
 
-                        {row.oklad ? <div className="d-flex justify-content-between px-1 more-info-hover">
+                        {row.oklad && row.oforml === 0 ? <div className="d-flex justify-content-between px-1 more-info-hover">
                             <span>Оклад за период</span>
                             <span>{row.oklad}</span>
                         </div> : null}
@@ -131,10 +139,36 @@ class PersonalPayInfo extends React.Component {
 
                         <ReytingCallSalary row={row} />
 
-                        {row.salary ? <div className="d-flex justify-content-between px-1 more-info-hover">
+                        {row.salary && row.oforml === 0 ? <div className="d-flex justify-content-between px-1 more-info-hover">
                             <span>Начислено ЗП</span>
                             <span className="font-weight-bold">{row.salary}</span>
                         </div> : null}
+
+                        {row.oforml === 1
+                            ? <>
+                                {row.taxPercent
+                                    ? <>
+                                        <div className="d-flex justify-content-between px-1 more-info-hover">
+                                            <span>Начислено ЗП {row.okladPercent}%</span>
+                                            <span>{row.salary}</span>
+                                        </div>
+                                        <div className="d-flex justify-content-between px-1 more-info-hover">
+                                            <span>Налог {row.taxPercent}%</span>
+                                            <span>-{row.tax}</span>
+                                        </div>
+                                        <div className="d-flex justify-content-between px-1 more-info-hover">
+                                            <span>Итого</span>
+                                            <span className="font-weight-bold">{row.salary - row.tax}</span>
+                                        </div>
+                                    </>
+                                    : <div className="d-flex justify-content-between px-1 more-info-hover">
+                                        <span>Аванс {row.okladPercent}%</span>
+                                        <span className="font-weight-bold">{row.salary}</span>
+                                    </div>
+                                }
+                            </>
+                            : null
+                        }
 
                         <ReytingCallData row={row} />
 
