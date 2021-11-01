@@ -125,6 +125,11 @@ class PersonalPayInfo extends React.Component {
                             <span>{row.okladFull}</span>
                         </div> : null}
 
+                        {row.noTax && row.noTax > 0 ? <div className="d-flex justify-content-between px-1 more-info-hover">
+                            <span>Не облагается налогом</span>
+                            <span>{row.noTax}</span>
+                        </div> : null}
+
                         {row.oklad && row.oforml === 0 ? <div className="d-flex justify-content-between px-1 more-info-hover">
                             <span>Оклад за период</span>
                             <span>{row.oklad}</span>
@@ -149,11 +154,11 @@ class PersonalPayInfo extends React.Component {
                                 {row.taxPercent
                                     ? <>
                                         <div className="d-flex justify-content-between px-1 more-info-hover">
-                                            <span>Начислено ЗП {row.okladPercent}%</span>
+                                            <span>Начислено ЗП <span className="badge badge-primary">{row.okladPercent}%</span></span>
                                             <span>{row.salary}</span>
                                         </div>
                                         <div className="d-flex justify-content-between px-1 more-info-hover">
-                                            <span>Налог {row.taxPercent}%</span>
+                                            <span>Налог <span className="badge badge-primary">{row.taxPercent}%</span></span>
                                             <span>-{row.tax}</span>
                                         </div>
                                         <div className="d-flex justify-content-between px-1 more-info-hover">
@@ -162,7 +167,7 @@ class PersonalPayInfo extends React.Component {
                                         </div>
                                     </>
                                     : <div className="d-flex justify-content-between px-1 more-info-hover">
-                                        <span>Аванс {row.okladPercent}%</span>
+                                        <span>Аванс <span className="badge badge-primary">{row.okladPercent}%</span></span>
                                         <span className="font-weight-bold">{row.salary}</span>
                                     </div>
                                 }

@@ -253,22 +253,24 @@ class PersonalPay extends React.Component {
                         <div className="table-cell py-2 px-2 text-center bg-primary">ФИО</div>
                         <div className="table-cell py-2 px-2 text-center bg-primary">PIN</div>
                         <div className="table-cell py-2 px-2 text-center bg-primary">Оклад</div>
-                        <div className="table-cell py-2 px-2 text-center bg-primary">Зарплата</div>
+                        <div className="table-cell py-2 px-2 text-center bg-primary">К выдаче</div>
                         <div className="table-cell py-2 px-2 text-center bg-primary">Штраф</div>
                         <div className="table-cell py-2 px-2 text-center bg-primary">Кухня</div>
-                        <div className="table-cell py-2 px-2 text-center bg-primary">Аванс</div>
+                        <div className="table-cell py-2 px-2 text-center bg-primary">Выдано</div>
+                        <div className="table-cell py-2 px-2 text-center bg-primary">Налог</div>
                         <div className="table-cell py-2 px-2 text-center bg-primary">Остаток</div>
                     </div>
 
                     <div className="table-row table-row-statistic">
                         <div className="table-cell py-1 px-2 font-weight-bold">Всего</div>
                         <div className="table-cell py-1 px-2 text-center">{statistic.pins || 0}</div>
-                        <div className="table-cell py-1 px-2 text-center">{statistic.oklad || 0}</div>
-                        <div className="table-cell py-1 px-2 text-center">{statistic.salary || 0}</div>
-                        <div className="table-cell py-1 px-2 text-center">{statistic.fines || 0}</div>
-                        <div className="table-cell py-1 px-2 text-center">{statistic.kitchen || 0}</div>
-                        <div className="table-cell py-1 px-2 text-center">{statistic.avans || 0}</div>
-                        <div className="table-cell py-1 px-2 text-center">{statistic.ostatok || 0}</div>
+                        <div className="table-cell py-1 px-2 text-center">{statistic.oklad ? Number(statistic.oklad).toFixed(2) : 0}</div>
+                        <div className="table-cell py-1 px-2 text-center">{statistic.salary ? Number(statistic.salary).toFixed(2) : 0}</div>
+                        <div className="table-cell py-1 px-2 text-center">{statistic.fines ? Number(statistic.fines).toFixed(2) : 0}</div>
+                        <div className="table-cell py-1 px-2 text-center">{statistic.kitchen ? Number(statistic.sakitchenlary).toFixed(2) : 0}</div>
+                        <div className="table-cell py-1 px-2 text-center">{statistic.avans ? Number(statistic.avans).toFixed(2) : 0}</div>
+                        <div className="table-cell py-1 px-2 text-center">{statistic.tax ? Number(statistic.tax).toFixed(2) : 0}</div>
+                        <div className="table-cell py-1 px-2 text-center">{statistic.ostatok ? Number(statistic.ostatok).toFixed(2) : 0}</div>
                     </div>
 
                     {rows}
