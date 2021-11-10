@@ -24,10 +24,10 @@ class PersonalPayRow extends React.Component {
                 <div className="table-cell py-1 px-2 text-center">{row.pins || 0}</div>
                 <div className="table-cell py-1 px-2 text-center">{row.oklad || 0}</div>
                 <div className="table-cell py-1 px-2 text-center">{row.salary || 0}</div>
+                <div className="table-cell py-1 px-2 text-center">{row.tax || 0}</div>
                 <div className="table-cell py-1 px-2 text-center">{row.fines || 0}</div>
                 <div className="table-cell py-1 px-2 text-center">{row.kitchen || 0}</div>
                 <div className="table-cell py-1 px-2 text-center">{row.avans || 0}</div>
-                <div className="table-cell py-1 px-2 text-center">{row.tax || 0}</div>
                 <div className="table-cell py-1 px-2 text-center">{row.ostatok || 0}</div>
             </div>;
 
@@ -53,15 +53,15 @@ class PersonalPayRow extends React.Component {
 
                     <div className={`table-cell py-1 px-2 text-center ${row.oklad === 0 ? 'null-data' : ''}`}>{row.oklad}</div>
 
-                    <div className={`table-cell py-1 px-2 text-center ${row.salary === 0 ? 'null-data' : ''}`}>{row.salary || 0}</div>
+                    <div className={`table-cell py-1 px-2 text-center ${row.salary === 0 ? 'null-data' : ''}`}>{(row.salary - (row.tax || 0)) || 0}</div>
+
+                    <div className={`table-cell py-1 px-2 text-center ${!row.tax || row.tax === 0 ? 'null-data' : ''}`}>{row.tax || 0}</div>
 
                     <div className={`table-cell py-1 px-2 text-center ${row.fines === 0 ? 'null-data' : ''}`}>{row.fines}</div>
 
                     <div className={`table-cell py-1 px-2 text-center ${row.kitchen === 0 ? 'null-data' : ''}`}>{row.kitchen}</div>
 
                     <div className={`table-cell py-1 px-2 text-center ${row.avans === 0 ? 'null-data' : ''}`}>{row.avans}</div>
-
-                    <div className={`table-cell py-1 px-2 text-center ${!row.tax || row.tax === 0 ? 'null-data' : ''}`}>{row.tax || 0}</div>
 
                     <div className={`table-cell py-1 px-2 text-center ${row.ostatok === 0 ? 'null-data' : color || ''}`}>{row.ostatok}</div>
 
