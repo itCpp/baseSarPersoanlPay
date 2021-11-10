@@ -144,6 +144,11 @@ class PersonalPayInfo extends React.Component {
 
                         <ReytingCallSalary row={row} />
 
+                        {row.bonusKpd && row.bonusKpd > 0 ? <div className="d-flex justify-content-between px-1 more-info-hover" title="Бонус, начисляемый каждый день при положительном КПД">
+                            <span>Бонус положительного КПД</span>
+                            <span>{row.bonusKpd}</span>
+                        </div> : null}
+
                         {row.salary && row.oforml === 0 ? <div className="d-flex justify-content-between px-1 more-info-hover">
                             <span>Начислено ЗП</span>
                             <span className="font-weight-bold">{row.salary}</span>
